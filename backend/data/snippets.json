@@ -1,0 +1,601 @@
+[
+  {
+    "id": 1,
+    "title": "Hello World",
+    "language": "C",
+    "level": "beginner",
+    "description": "Basic Hello World program in C",
+    "code": "#include <stdio.h>\\n\\nint main() {\\n    printf(\"Hello, World!\\\\n\");\\n    return 0;\\n}",
+    "tags": [
+      "basics",
+      "output"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Fibonacci Series",
+    "language": "C",
+    "level": "intermediate",
+    "description": "Generate Fibonacci series using recursion",
+    "code": "#include <stdio.h>\\n\\nint fibonacci(int n) {\\n    if (n <= 1) return n;\\n    return fibonacci(n-1) + fibonacci(n-2);\\n}\\n\\nint main() {\\n    for (int i = 0; i < 10; i++)\\n        printf(\\\"%d \\\", fibonacci(i));\\n    return 0;\\n}",
+    "tags": [
+      "recursion",
+      "math"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Bubble Sort",
+    "language": "C",
+    "level": "intermediate",
+    "description": "Sort array using bubble sort algorithm",
+    "code": "#include <stdio.h>\\n\\nvoid bubbleSort(int arr[], int n) {\\n    for (int i = 0; i < n-1; i++)\\n        for (int j = 0; j < n-i-1; j++)\\n            if (arr[j] > arr[j+1]) {\\n                int temp = arr[j];\\n                arr[j] = arr[j+1];\\n                arr[j+1] = temp;\\n            }\\n}",
+    "tags": [
+      "sorting",
+      "algorithm"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Linked List",
+    "language": "C",
+    "level": "advanced",
+    "description": "Implementation of singly linked list",
+    "code": "#include <stdio.h>\\n#include <stdlib.h>\\n\\nstruct Node {\\n    int data;\\n    struct Node* next;\\n};\\n\\nstruct Node* createNode(int data) {\\n    struct Node* node = (struct Node*)malloc(sizeof(struct Node));\\n    node->data = data;\\n    node->next = NULL;\\n    return node;\\n}\\n\\nvoid printList(struct Node* head) {\\n    while (head) {\\n        printf(\\\"%d -> \\\", head->data);\\n        head = head->next;\\n    }\\n    printf(\\\"NULL\\\\n\\\");\\n}",
+    "tags": [
+      "data-structures",
+      "linked-list"
+    ]
+  },
+  {
+    "id": 5,
+    "title": "File I/O",
+    "language": "C",
+    "level": "intermediate",
+    "description": "Read and write files in C",
+    "code": "#include <stdio.h>\\n\\nint main() {\\n    FILE *fp = fopen(\\\"output.txt\\\", \\\"w\\\");\\n    fprintf(fp, \\\"Hello File!\\\\n\\\");\\n    fclose(fp);\\n\\n    fp = fopen(\\\"output.txt\\\", \\\"r\\\");\\n    char buffer[100];\\n    fgets(buffer, 100, fp);\\n    printf(\\\"%s\\\", buffer);\\n    fclose(fp);\\n    return 0;\\n}",
+    "tags": [
+      "file",
+      "io"
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Binary Search",
+    "language": "C",
+    "level": "advanced",
+    "description": "Binary search algorithm implementation",
+    "code": "#include <stdio.h>\\n\\nint binarySearch(int arr[], int l, int r, int x) {\\n    while (l <= r) {\\n        int mid = l + (r - l) / 2;\\n        if (arr[mid] == x) return mid;\\n        if (arr[mid] < x) l = mid + 1;\\n        else r = mid - 1;\\n    }\\n    return -1;\\n}",
+    "tags": [
+      "searching",
+      "algorithm"
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Array Destructuring",
+    "language": "JavaScript",
+    "level": "beginner",
+    "description": "ES6 array destructuring examples",
+    "code": "const [a, b, ...rest] = [1, 2, 3, 4, 5];\\nconsole.log(a);    // 1\\nconsole.log(b);    // 2\\nconsole.log(rest); // [3, 4, 5]",
+    "tags": [
+      "es6",
+      "arrays"
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Promise Chaining",
+    "language": "JavaScript",
+    "level": "intermediate",
+    "description": "Working with Promises and async operations",
+    "code": "const fetchData = () => {\\n  return new Promise((resolve) => {\\n    setTimeout(() => resolve({ data: 'Hello' }), 1000);\\n  });\\n};\\n\\nfetchData()\\n  .then(result => {\\n    console.log(result.data);\\n    return 'Processed';\\n  })\\n  .then(msg => console.log(msg))\\n  .catch(err => console.error(err));",
+    "tags": [
+      "async",
+      "promises"
+    ]
+  },
+  {
+    "id": 9,
+    "title": "Async/Await Fetch",
+    "language": "JavaScript",
+    "level": "intermediate",
+    "description": "Fetch API with async/await",
+    "code": "async function getUsers() {\\n  try {\\n    const response = await fetch('https://jsonplaceholder.typicode.com/users');\\n    const users = await response.json();\\n    users.forEach(user => console.log(user.name));\\n  } catch (error) {\\n    console.error('Error:', error);\\n  }\\n}\\n\\ngetUsers();",
+    "tags": [
+      "fetch",
+      "api",
+      "async"
+    ]
+  },
+  {
+    "id": 10,
+    "title": "Debounce Function",
+    "language": "JavaScript",
+    "level": "advanced",
+    "description": "Implement debounce for performance optimization",
+    "code": "function debounce(func, delay) {\\n  let timeoutId;\\n  return function (...args) {\\n    clearTimeout(timeoutId);\\n    timeoutId = setTimeout(() => func.apply(this, args), delay);\\n  };\\n}\\n\\nconst search = debounce((query) => {\\n  console.log('Searching:', query);\\n}, 300);",
+    "tags": [
+      "performance",
+      "utility"
+    ]
+  },
+  {
+    "id": 11,
+    "title": "Closure Example",
+    "language": "JavaScript",
+    "level": "intermediate",
+    "description": "Understanding closures in JavaScript",
+    "code": "function createCounter() {\\n  let count = 0;\\n  return {\\n    increment: () => ++count,\\n    decrement: () => --count,\\n    getCount: () => count\\n  };\\n}\\n\\nconst counter = createCounter();\\nconsole.log(counter.increment()); // 1\\nconsole.log(counter.increment()); // 2\\nconsole.log(counter.decrement()); // 1",
+    "tags": [
+      "closures",
+      "functions"
+    ]
+  },
+  {
+    "id": 12,
+    "title": "Event Delegation",
+    "language": "JavaScript",
+    "level": "advanced",
+    "description": "Efficient event handling with delegation",
+    "code": "document.getElementById('list').addEventListener('click', (e) => {\\n  if (e.target.tagName === 'LI') {\\n    e.target.classList.toggle('completed');\\n    console.log('Clicked:', e.target.textContent);\\n  }\\n});",
+    "tags": [
+      "dom",
+      "events"
+    ]
+  },
+  {
+    "id": 13,
+    "title": "LocalStorage CRUD",
+    "language": "JavaScript",
+    "level": "beginner",
+    "description": "CRUD operations with localStorage",
+    "code": "// Create / Update\\nlocalStorage.setItem('user', JSON.stringify({ name: 'John', age: 30 }));\\n\\n// Read\\nconst user = JSON.parse(localStorage.getItem('user'));\\nconsole.log(user.name);\\n\\n// Delete\\nlocalStorage.removeItem('user');\\n\\n// Clear all\\nlocalStorage.clear();",
+    "tags": [
+      "storage",
+      "crud"
+    ]
+  },
+  {
+    "id": 14,
+    "title": "ArrayList Operations",
+    "language": "Java",
+    "level": "beginner",
+    "description": "Common ArrayList operations in Java",
+    "code": "import java.util.ArrayList;\\nimport java.util.Collections;\\n\\npublic class ArrayListDemo {\\n    public static void main(String[] args) {\\n        ArrayList<String> list = new ArrayList<>();\\n        list.add(\\\"Apple\\\");\\n        list.add(\\\"Banana\\\");\\n        list.add(\\\"Cherry\\\");\\n        Collections.sort(list);\\n        list.forEach(System.out::println);\\n    }\\n}",
+    "tags": [
+      "collections",
+      "arraylist"
+    ]
+  },
+  {
+    "id": 15,
+    "title": "Interface Implementation",
+    "language": "Java",
+    "level": "intermediate",
+    "description": "Java interface with implementation",
+    "code": "interface Shape {\\n    double area();\\n    double perimeter();\\n}\\n\\nclass Circle implements Shape {\\n    double radius;\\n    Circle(double r) { this.radius = r; }\\n    public double area() { return Math.PI * radius * radius; }\\n    public double perimeter() { return 2 * Math.PI * radius; }\\n}",
+    "tags": [
+      "oop",
+      "interface"
+    ]
+  },
+  {
+    "id": 16,
+    "title": "Exception Handling",
+    "language": "Java",
+    "level": "intermediate",
+    "description": "Try-catch-finally with custom exceptions",
+    "code": "class InsufficientFundsException extends Exception {\\n    public InsufficientFundsException(String msg) { super(msg); }\\n}\\n\\npublic class BankAccount {\\n    private double balance = 1000;\\n    \\n    public void withdraw(double amount) throws InsufficientFundsException {\\n        if (amount > balance)\\n            throw new InsufficientFundsException(\\\"Balance: \\\" + balance);\\n        balance -= amount;\\n    }\\n}",
+    "tags": [
+      "exceptions",
+      "error-handling"
+    ]
+  },
+  {
+    "id": 17,
+    "title": "Lambda Expressions",
+    "language": "Java",
+    "level": "advanced",
+    "description": "Java 8 lambda and stream operations",
+    "code": "import java.util.*;\\nimport java.util.stream.*;\\n\\npublic class LambdaDemo {\\n    public static void main(String[] args) {\\n        List<Integer> nums = Arrays.asList(1,2,3,4,5,6,7,8,9,10);\\n        \\n        List<Integer> evens = nums.stream()\\n            .filter(n -> n % 2 == 0)\\n            .map(n -> n * n)\\n            .collect(Collectors.toList());\\n        \\n        evens.forEach(System.out::println);\\n    }\\n}",
+    "tags": [
+      "lambda",
+      "streams",
+      "java8"
+    ]
+  },
+  {
+    "id": 18,
+    "title": "Multithreading",
+    "language": "Java",
+    "level": "advanced",
+    "description": "Thread creation and synchronization",
+    "code": "class Counter {\\n    private int count = 0;\\n    public synchronized void increment() { count++; }\\n    public int getCount() { return count; }\\n}\\n\\npublic class ThreadDemo {\\n    public static void main(String[] args) throws InterruptedException {\\n        Counter counter = new Counter();\\n        Thread t1 = new Thread(() -> {\\n            for (int i = 0; i < 1000; i++) counter.increment();\\n        });\\n        Thread t2 = new Thread(() -> {\\n            for (int i = 0; i < 1000; i++) counter.increment();\\n        });\\n        t1.start(); t2.start();\\n        t1.join(); t2.join();\\n        System.out.println(counter.getCount());\\n    }\\n}",
+    "tags": [
+      "threads",
+      "concurrency"
+    ]
+  },
+  {
+    "id": 19,
+    "title": "HashMap Usage",
+    "language": "Java",
+    "level": "beginner",
+    "description": "HashMap operations and iteration",
+    "code": "import java.util.HashMap;\\nimport java.util.Map;\\n\\npublic class HashMapDemo {\\n    public static void main(String[] args) {\\n        HashMap<String, Integer> scores = new HashMap<>();\\n        scores.put(\\\"Alice\\\", 95);\\n        scores.put(\\\"Bob\\\", 87);\\n        scores.put(\\\"Charlie\\\", 92);\\n        \\n        for (Map.Entry<String, Integer> entry : scores.entrySet()) {\\n            System.out.println(entry.getKey() + \\\": \\\" + entry.getValue());\\n        }\\n    }\\n}",
+    "tags": [
+      "collections",
+      "hashmap"
+    ]
+  },
+  {
+    "id": 20,
+    "title": "Semantic Layout",
+    "language": "HTML",
+    "level": "beginner",
+    "description": "HTML5 semantic page structure",
+    "code": "<!DOCTYPE html>\\n<html lang=\\\"en\\\">\\n<head>\\n    <meta charset=\\\"UTF-8\\\">\\n    <meta name=\\\"viewport\\\" content=\\\"width=device-width, initial-scale=1.0\\\">\\n    <title>Semantic HTML</title>\\n</head>\\n<body>\\n    <header><nav>Navigation</nav></header>\\n    <main>\\n        <article>\\n            <h1>Main Article</h1>\\n            <section><p>Content section</p></section>\\n        </article>\\n        <aside>Sidebar</aside>\\n    </main>\\n    <footer>&copy; 2024</footer>\\n</body>\\n</html>",
+    "tags": [
+      "semantic",
+      "structure"
+    ]
+  },
+  {
+    "id": 21,
+    "title": "Responsive Form",
+    "language": "HTML",
+    "level": "intermediate",
+    "description": "Accessible form with validation",
+    "code": "<form action=\\\"/submit\\\" method=\\\"POST\\\">\\n  <label for=\\\"name\\\">Full Name</label>\\n  <input type=\\\"text\\\" id=\\\"name\\\" name=\\\"name\\\" required minlength=\\\"2\\\" placeholder=\\\"John Doe\\\">\\n\\n  <label for=\\\"email\\\">Email</label>\\n  <input type=\\\"email\\\" id=\\\"email\\\" name=\\\"email\\\" required>\\n\\n  <label for=\\\"message\\\">Message</label>\\n  <textarea id=\\\"message\\\" name=\\\"message\\\" rows=\\\"4\\\" required></textarea>\\n\\n  <button type=\\\"submit\\\">Send</button>\\n</form>",
+    "tags": [
+      "forms",
+      "validation"
+    ]
+  },
+  {
+    "id": 22,
+    "title": "Table with Accessibility",
+    "language": "HTML",
+    "level": "intermediate",
+    "description": "Accessible data table",
+    "code": "<table>\\n  <caption>Student Grades</caption>\\n  <thead>\\n    <tr>\\n      <th scope=\\\"col\\\">Name</th>\\n      <th scope=\\\"col\\\">Subject</th>\\n      <th scope=\\\"col\\\">Grade</th>\\n    </tr>\\n  </thead>\\n  <tbody>\\n    <tr>\\n      <td>Alice</td><td>Math</td><td>A+</td>\\n    </tr>\\n    <tr>\\n      <td>Bob</td><td>Science</td><td>B</td>\\n    </tr>\\n  </tbody>\\n</table>",
+    "tags": [
+      "table",
+      "accessibility"
+    ]
+  },
+  {
+    "id": 23,
+    "title": "Media Elements",
+    "language": "HTML",
+    "level": "beginner",
+    "description": "Video and audio elements with fallbacks",
+    "code": "<video controls width=\\\"640\\\" poster=\\\"thumbnail.jpg\\\">\\n  <source src=\\\"video.mp4\\\" type=\\\"video/mp4\\\">\\n  <source src=\\\"video.webm\\\" type=\\\"video/webm\\\">\\n  Your browser doesn't support video.\\n</video>\\n\\n<audio controls>\\n  <source src=\\\"audio.mp3\\\" type=\\\"audio/mpeg\\\">\\n  <source src=\\\"audio.ogg\\\" type=\\\"audio/ogg\\\">\\n  Your browser doesn't support audio.\\n</audio>",
+    "tags": [
+      "media",
+      "video",
+      "audio"
+    ]
+  },
+  {
+    "id": 24,
+    "title": "Meta Tags for SEO",
+    "language": "HTML",
+    "level": "advanced",
+    "description": "Complete meta tags setup for SEO",
+    "code": "<head>\\n  <meta charset=\\\"UTF-8\\\">\\n  <meta name=\\\"viewport\\\" content=\\\"width=device-width, initial-scale=1.0\\\">\\n  <meta name=\\\"description\\\" content=\\\"A comprehensive code snippet library\\\">\\n  <meta name=\\\"keywords\\\" content=\\\"code, snippets, programming\\\">\\n  <meta name=\\\"author\\\" content=\\\"Your Name\\\">\\n  <meta property=\\\"og:title\\\" content=\\\"Code Snippet Library\\\">\\n  <meta property=\\\"og:description\\\" content=\\\"Browse and save code snippets\\\">\\n  <meta property=\\\"og:type\\\" content=\\\"website\\\">\\n  <link rel=\\\"canonical\\\" href=\\\"https://yoursite.com\\\">\\n</head>",
+    "tags": [
+      "seo",
+      "meta"
+    ]
+  },
+  {
+    "id": 25,
+    "title": "Flexbox Layout",
+    "language": "CSS",
+    "level": "beginner",
+    "description": "Responsive flexbox layout patterns",
+    "code": ".container {\\n  display: flex;\\n  flex-wrap: wrap;\\n  gap: 1rem;\\n  justify-content: center;\\n}\\n\\n.card {\\n  flex: 1 1 300px;\\n  max-width: 400px;\\n  padding: 1.5rem;\\n  border-radius: 12px;\\n  box-shadow: 0 4px 6px rgba(0,0,0,0.1);\\n}",
+    "tags": [
+      "flexbox",
+      "layout"
+    ]
+  },
+  {
+    "id": 26,
+    "title": "CSS Grid Dashboard",
+    "language": "CSS",
+    "level": "intermediate",
+    "description": "Dashboard layout using CSS Grid",
+    "code": ".dashboard {\\n  display: grid;\\n  grid-template-columns: 250px 1fr;\\n  grid-template-rows: 60px 1fr;\\n  grid-template-areas:\\n    \\\"sidebar header\\\"\\n    \\\"sidebar main\\\";\\n  min-height: 100vh;\\n}\\n\\n.header { grid-area: header; }\\n.sidebar { grid-area: sidebar; }\\n.main { grid-area: main; }\\n\\n@media (max-width: 768px) {\\n  .dashboard {\\n    grid-template-columns: 1fr;\\n    grid-template-areas: \\\"header\\\" \\\"main\\\";\\n  }\\n}",
+    "tags": [
+      "grid",
+      "layout",
+      "responsive"
+    ]
+  },
+  {
+    "id": 27,
+    "title": "Glassmorphism Card",
+    "language": "CSS",
+    "level": "advanced",
+    "description": "Glassmorphism effect with backdrop-filter",
+    "code": ".glass-card {\\n  background: rgba(255, 255, 255, 0.1);\\n  backdrop-filter: blur(10px);\\n  -webkit-backdrop-filter: blur(10px);\\n  border: 1px solid rgba(255, 255, 255, 0.2);\\n  border-radius: 16px;\\n  padding: 2rem;\\n  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);\\n}\\n\\n.glass-card:hover {\\n  background: rgba(255, 255, 255, 0.15);\\n  transform: translateY(-2px);\\n  transition: all 0.3s ease;\\n}",
+    "tags": [
+      "glassmorphism",
+      "effects"
+    ]
+  },
+  {
+    "id": 28,
+    "title": "CSS Animations",
+    "language": "CSS",
+    "level": "intermediate",
+    "description": "Keyframe animations and transitions",
+    "code": "@keyframes slideIn {\\n  from {\\n    opacity: 0;\\n    transform: translateY(30px);\\n  }\\n  to {\\n    opacity: 1;\\n    transform: translateY(0);\\n  }\\n}\\n\\n.animate-in {\\n  animation: slideIn 0.6s ease-out forwards;\\n}\\n\\n.btn {\\n  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);\\n}\\n\\n.btn:hover {\\n  transform: scale(1.05);\\n  box-shadow: 0 10px 25px rgba(0,0,0,0.2);\\n}",
+    "tags": [
+      "animation",
+      "transition"
+    ]
+  },
+  {
+    "id": 29,
+    "title": "Custom Scrollbar",
+    "language": "CSS",
+    "level": "intermediate",
+    "description": "Styled custom scrollbar",
+    "code": "::-webkit-scrollbar {\\n  width: 8px;\\n}\\n\\n::-webkit-scrollbar-track {\\n  background: #1a1a2e;\\n  border-radius: 4px;\\n}\\n\\n::-webkit-scrollbar-thumb {\\n  background: linear-gradient(180deg, #6366f1, #8b5cf6);\\n  border-radius: 4px;\\n}\\n\\n::-webkit-scrollbar-thumb:hover {\\n  background: linear-gradient(180deg, #818cf8, #a78bfa);\\n}",
+    "tags": [
+      "scrollbar",
+      "customization"
+    ]
+  },
+  {
+    "id": 30,
+    "title": "Responsive Navbar",
+    "language": "Tailwind",
+    "level": "beginner",
+    "description": "Responsive navigation with Tailwind",
+    "code": "<nav class=\\\"bg-gray-900 border-b border-gray-800\\\">\\n  <div class=\\\"max-w-7xl mx-auto px-4 sm:px-6 lg:px-8\\\">\\n    <div class=\\\"flex items-center justify-between h-16\\\">\\n      <div class=\\\"text-xl font-bold text-white\\\">Logo</div>\\n      <div class=\\\"hidden md:flex space-x-4\\\">\\n        <a href=\\\"#\\\" class=\\\"text-gray-300 hover:text-white px-3 py-2 rounded-md\\\">Home</a>\\n        <a href=\\\"#\\\" class=\\\"text-gray-300 hover:text-white px-3 py-2 rounded-md\\\">About</a>\\n        <a href=\\\"#\\\" class=\\\"text-gray-300 hover:text-white px-3 py-2 rounded-md\\\">Contact</a>\\n      </div>\\n    </div>\\n  </div>\\n</nav>",
+    "tags": [
+      "navbar",
+      "responsive"
+    ]
+  },
+  {
+    "id": 31,
+    "title": "Card Grid",
+    "language": "Tailwind",
+    "level": "intermediate",
+    "description": "Responsive card grid layout",
+    "code": "<div class=\\\"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6\\\">\\n  <div class=\\\"bg-gray-800 rounded-xl p-6 hover:bg-gray-750 transition-all duration-300 hover:shadow-xl hover:-translate-y-1\\\">\\n    <h3 class=\\\"text-lg font-semibold text-white mb-2\\\">Card Title</h3>\\n    <p class=\\\"text-gray-400\\\">Card description goes here with some detail.</p>\\n    <button class=\\\"mt-4 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-500\\\">\\n      Learn More\\n    </button>\\n  </div>\\n</div>",
+    "tags": [
+      "grid",
+      "cards",
+      "responsive"
+    ]
+  },
+  {
+    "id": 32,
+    "title": "Glassmorphism Component",
+    "language": "Tailwind",
+    "level": "advanced",
+    "description": "Glassmorphism UI with Tailwind",
+    "code": "<div class=\\\"relative\\\">\\n  <div class=\\\"absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 blur-3xl opacity-20\\\"></div>\\n  <div class=\\\"relative bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-8 shadow-2xl\\\">\\n    <h2 class=\\\"text-2xl font-bold text-white mb-4\\\">Glass Card</h2>\\n    <p class=\\\"text-gray-300\\\">Beautiful glassmorphism effect using Tailwind CSS utility classes.</p>\\n  </div>\\n</div>",
+    "tags": [
+      "glassmorphism",
+      "design"
+    ]
+  },
+  {
+    "id": 33,
+    "title": "Form with Validation States",
+    "language": "Tailwind",
+    "level": "intermediate",
+    "description": "Form inputs with visual validation",
+    "code": "<div class=\\\"space-y-4 max-w-md\\\">\\n  <div>\\n    <label class=\\\"block text-sm font-medium text-gray-300 mb-1\\\">Email</label>\\n    <input type=\\\"email\\\" class=\\\"w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all\\\" placeholder=\\\"you@example.com\\\">\\n  </div>\\n  <div>\\n    <label class=\\\"block text-sm font-medium text-gray-300 mb-1\\\">Password</label>\\n    <input type=\\\"password\\\" class=\\\"w-full px-4 py-2 bg-gray-800 border border-red-500 rounded-lg text-white focus:ring-2 focus:ring-red-500\\\" placeholder=\\\"\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\\\">\\n    <p class=\\\"text-red-400 text-sm mt-1\\\">Password must be at least 8 characters</p>\\n  </div>\\n</div>",
+    "tags": [
+      "forms",
+      "validation"
+    ]
+  },
+  {
+    "id": 34,
+    "title": "Animated Loading Skeleton",
+    "language": "Tailwind",
+    "level": "intermediate",
+    "description": "Loading skeleton with pulse animation",
+    "code": "<div class=\\\"animate-pulse space-y-4 p-6\\\">\\n  <div class=\\\"h-4 bg-gray-700 rounded w-3/4\\\"></div>\\n  <div class=\\\"h-4 bg-gray-700 rounded w-1/2\\\"></div>\\n  <div class=\\\"flex space-x-4\\\">\\n    <div class=\\\"w-12 h-12 bg-gray-700 rounded-full\\\"></div>\\n    <div class=\\\"flex-1 space-y-2\\\">\\n      <div class=\\\"h-4 bg-gray-700 rounded\\\"></div>\\n      <div class=\\\"h-4 bg-gray-700 rounded w-5/6\\\"></div>\\n    </div>\\n  </div>\\n</div>",
+    "tags": [
+      "loading",
+      "skeleton",
+      "animation"
+    ]
+  },
+  {
+    "id": 35,
+    "title": "Table Creation with Constraints",
+    "language": "SQL",
+    "level": "beginner",
+    "description": "Create table with primary key, foreign key and constraints",
+    "code": "CREATE TABLE users (\\n    id INT PRIMARY KEY AUTO_INCREMENT,\\n    username VARCHAR(50) UNIQUE NOT NULL,\\n    email VARCHAR(100) UNIQUE NOT NULL,\\n    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP\\n);\\n\\nCREATE TABLE posts (\\n    id INT PRIMARY KEY AUTO_INCREMENT,\\n    user_id INT NOT NULL,\\n    title VARCHAR(200) NOT NULL,\\n    content TEXT,\\n    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE\\n);",
+    "tags": [
+      "ddl",
+      "tables",
+      "constraints"
+    ]
+  },
+  {
+    "id": 36,
+    "title": "Complex JOIN Queries",
+    "language": "SQL",
+    "level": "intermediate",
+    "description": "Multiple JOIN types with aggregation",
+    "code": "SELECT \\n    u.username,\\n    COUNT(p.id) AS total_posts,\\n    COALESCE(SUM(p.views), 0) AS total_views\\nFROM users u\\nLEFT JOIN posts p ON u.id = p.user_id\\nLEFT JOIN comments c ON p.id = c.post_id\\nWHERE u.created_at >= '2024-01-01'\\nGROUP BY u.id, u.username\\nHAVING COUNT(p.id) > 0\\nORDER BY total_views DESC\\nLIMIT 10;",
+    "tags": [
+      "joins",
+      "aggregation"
+    ]
+  },
+  {
+    "id": 37,
+    "title": "Stored Procedure",
+    "language": "SQL",
+    "level": "advanced",
+    "description": "Stored procedure with error handling",
+    "code": "DELIMITER //\\n\\nCREATE PROCEDURE TransferFunds(\\n    IN from_acc INT,\\n    IN to_acc INT,\\n    IN amount DECIMAL(10,2)\\n)\\nBEGIN\\n    DECLARE EXIT HANDLER FOR SQLEXCEPTION\\n    BEGIN\\n        ROLLBACK;\\n        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Transfer failed';\\n    END;\\n\\n    START TRANSACTION;\\n    UPDATE accounts SET balance = balance - amount WHERE id = from_acc;\\n    UPDATE accounts SET balance = balance + amount WHERE id = to_acc;\\n    COMMIT;\\nEND //\\n\\nDELIMITER ;",
+    "tags": [
+      "stored-procedure",
+      "transactions"
+    ]
+  },
+  {
+    "id": 38,
+    "title": "Window Functions",
+    "language": "SQL",
+    "level": "advanced",
+    "description": "Advanced window functions for analytics",
+    "code": "SELECT \\n    employee_name,\\n    department,\\n    salary,\\n    RANK() OVER (PARTITION BY department ORDER BY salary DESC) AS dept_rank,\\n    AVG(salary) OVER (PARTITION BY department) AS dept_avg,\\n    salary - AVG(salary) OVER (PARTITION BY department) AS diff_from_avg,\\n    SUM(salary) OVER (ORDER BY salary DESC ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS running_total\\nFROM employees\\nORDER BY department, dept_rank;",
+    "tags": [
+      "window-functions",
+      "analytics"
+    ]
+  },
+  {
+    "id": 39,
+    "title": "Indexing Strategy",
+    "language": "SQL",
+    "level": "intermediate",
+    "description": "Creating indexes for query optimization",
+    "code": "-- Single column index\\nCREATE INDEX idx_users_email ON users(email);\\n\\n-- Composite index\\nCREATE INDEX idx_posts_user_date ON posts(user_id, created_at DESC);\\n\\n-- Partial index (PostgreSQL)\\nCREATE INDEX idx_active_users ON users(email) WHERE is_active = true;\\n\\n-- Full-text index\\nCREATE FULLTEXT INDEX idx_posts_content ON posts(title, content);\\n\\n-- Show query execution plan\\nEXPLAIN ANALYZE SELECT * FROM users WHERE email = 'test@example.com';",
+    "tags": [
+      "indexing",
+      "performance"
+    ]
+  },
+  {
+    "id": 40,
+    "title": "CRUD Operations",
+    "language": "MongoDB",
+    "level": "beginner",
+    "description": "Basic MongoDB CRUD operations",
+    "code": "// Insert\\ndb.users.insertOne({\\n  name: 'John Doe',\\n  email: 'john@example.com',\\n  age: 30,\\n  tags: ['developer', 'nodejs']\\n});\\n\\n// Find with projection\\ndb.users.find({ age: { $gte: 25 } }, { name: 1, email: 1 });\\n\\n// Update\\ndb.users.updateOne(\\n  { email: 'john@example.com' },\\n  { $set: { age: 31 }, $push: { tags: 'mongodb' } }\\n);\\n\\n// Delete\\ndb.users.deleteOne({ email: 'john@example.com' });",
+    "tags": [
+      "crud",
+      "basics"
+    ]
+  },
+  {
+    "id": 41,
+    "title": "Aggregation Pipeline",
+    "language": "MongoDB",
+    "level": "advanced",
+    "description": "Complex aggregation with multiple stages",
+    "code": "db.orders.aggregate([\\n  { $match: { status: 'completed', date: { $gte: new Date('2024-01-01') } } },\\n  { $unwind: '$items' },\\n  { $group: {\\n      _id: '$items.category',\\n      totalRevenue: { $sum: { $multiply: ['$items.price', '$items.qty'] } },\\n      avgPrice: { $avg: '$items.price' },\\n      count: { $sum: 1 }\\n  }},\\n  { $sort: { totalRevenue: -1 } },\\n  { $limit: 5 },\\n  { $project: { category: '$_id', totalRevenue: 1, avgPrice: { $round: ['$avgPrice', 2] }, count: 1 } }\\n]);",
+    "tags": [
+      "aggregation",
+      "analytics"
+    ]
+  },
+  {
+    "id": 42,
+    "title": "Schema Validation",
+    "language": "MongoDB",
+    "level": "intermediate",
+    "description": "MongoDB schema validation rules",
+    "code": "db.createCollection('products', {\\n  validator: {\\n    $jsonSchema: {\\n      bsonType: 'object',\\n      required: ['name', 'price', 'category'],\\n      properties: {\\n        name: { bsonType: 'string', minLength: 1 },\\n        price: { bsonType: 'number', minimum: 0 },\\n        category: { enum: ['electronics', 'clothing', 'food'] },\\n        inStock: { bsonType: 'bool' },\\n        tags: {\\n          bsonType: 'array',\\n          items: { bsonType: 'string' }\\n        }\\n      }\\n    }\\n  }\\n});",
+    "tags": [
+      "schema",
+      "validation"
+    ]
+  },
+  {
+    "id": 43,
+    "title": "Mongoose Schema & Model",
+    "language": "MongoDB",
+    "level": "intermediate",
+    "description": "Mongoose schema with middleware and virtuals",
+    "code": "const mongoose = require('mongoose');\\n\\nconst productSchema = new mongoose.Schema({\\n  name: { type: String, required: true, trim: true },\\n  price: { type: Number, required: true, min: 0 },\\n  category: { type: String, enum: ['electronics', 'clothing', 'food'] },\\n  createdAt: { type: Date, default: Date.now }\\n});\\n\\nproductSchema.virtual('priceWithTax').get(function() {\\n  return (this.price * 1.18).toFixed(2);\\n});\\n\\nproductSchema.pre('save', function(next) {\\n  this.name = this.name.charAt(0).toUpperCase() + this.name.slice(1);\\n  next();\\n});\\n\\nmodule.exports = mongoose.model('Product', productSchema);",
+    "tags": [
+      "mongoose",
+      "schema",
+      "middleware"
+    ]
+  },
+  {
+    "id": 44,
+    "title": "Indexing & Performance",
+    "language": "MongoDB",
+    "level": "advanced",
+    "description": "MongoDB indexing strategies",
+    "code": "// Single field index\\ndb.users.createIndex({ email: 1 }, { unique: true });\\n\\n// Compound index\\ndb.orders.createIndex({ userId: 1, createdAt: -1 });\\n\\n// Text index for search\\ndb.articles.createIndex({ title: 'text', content: 'text' });\\n\\n// TTL index (auto-delete after 30 days)\\ndb.sessions.createIndex({ createdAt: 1 }, { expireAfterSeconds: 2592000 });\\n\\n// Explain query performance\\ndb.users.find({ email: 'test@test.com' }).explain('executionStats');",
+    "tags": [
+      "indexing",
+      "performance"
+    ]
+  },
+  {
+    "id": 45,
+    "title": "File Operations",
+    "language": "Shell",
+    "level": "beginner",
+    "description": "Common file and directory operations",
+    "code": "#!/bin/bash\\n\\n# Find files modified in last 24 hours\\nfind /var/log -name '*.log' -mtime -1\\n\\n# Count lines in all JS files\\nfind . -name '*.js' | xargs wc -l | tail -1\\n\\n# Create backup with timestamp\\ntar -czf backup_$(date +%Y%m%d_%H%M%S).tar.gz /path/to/dir\\n\\n# Disk usage sorted by size\\ndu -sh */ | sort -rh | head -10",
+    "tags": [
+      "files",
+      "basics"
+    ]
+  },
+  {
+    "id": 46,
+    "title": "Text Processing",
+    "language": "Shell",
+    "level": "intermediate",
+    "description": "grep, sed, awk text processing",
+    "code": "#!/bin/bash\\n\\n# Extract emails from file\\ngrep -oE '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,}' file.txt\\n\\n# Replace text in multiple files\\nsed -i 's/old_text/new_text/g' *.conf\\n\\n# Sum numbers in a column\\nawk '{sum += $3} END {print \\\"Total:\\\", sum}' data.txt\\n\\n# Count unique IP addresses in access log\\nawk '{print $1}' access.log | sort | uniq -c | sort -rn | head -20",
+    "tags": [
+      "grep",
+      "sed",
+      "awk"
+    ]
+  },
+  {
+    "id": 47,
+    "title": "Process Management",
+    "language": "Shell",
+    "level": "intermediate",
+    "description": "Managing system processes",
+    "code": "#!/bin/bash\\n\\n# Find process by name\\nps aux | grep nginx\\n\\n# Kill process by port\\nfuser -k 3000/tcp\\n\\n# Monitor system resources\\ntop -bn1 | head -20\\n\\n# Background process with nohup\\nnohup node server.js > output.log 2>&1 &\\n\\n# Check open ports\\nnetstat -tlnp | grep LISTEN",
+    "tags": [
+      "process",
+      "system"
+    ]
+  },
+  {
+    "id": 48,
+    "title": "Bash Script with Functions",
+    "language": "Shell",
+    "level": "advanced",
+    "description": "Structured bash script with functions and error handling",
+    "code": "#!/bin/bash\\nset -euo pipefail\\n\\nLOG_FILE=\\\"/var/log/deploy.log\\\"\\n\\nlog() { echo \\\"[$(date +'%Y-%m-%d %H:%M:%S')] $1\\\" | tee -a \\\"$LOG_FILE\\\"; }\\n\\ncheck_deps() {\\n    local deps=(\\\"git\\\" \\\"node\\\" \\\"npm\\\")\\n    for dep in \\\"${deps[@]}\\\"; do\\n        command -v \\\"$dep\\\" &>/dev/null || { log \\\"ERROR: $dep not found\\\"; exit 1; }\\n    done\\n    log \\\"All dependencies found\\\"\\n}\\n\\ndeploy() {\\n    log \\\"Starting deployment...\\\"\\n    git pull origin main\\n    npm ci --production\\n    pm2 restart app\\n    log \\\"Deployment complete\\\"\\n}\\n\\ncheck_deps && deploy",
+    "tags": [
+      "bash",
+      "functions",
+      "deployment"
+    ]
+  },
+  {
+    "id": 49,
+    "title": "System Monitoring Script",
+    "language": "Shell",
+    "level": "advanced",
+    "description": "Automated system health monitoring",
+    "code": "#!/bin/bash\\n\\nTHRESHOLD=80\\nALERT_EMAIL=\\\"admin@example.com\\\"\\n\\ncheck_disk() {\\n    df -h | awk 'NR>1 {gsub(/%/,\\\"\\\", $5); if($5 > '\\\"$THRESHOLD\\\"') print $1, $5\\\"%\\\", $6}'\\n}\\n\\ncheck_memory() {\\n    free | awk '/Mem:/ {printf \\\"Memory: %.1f%% used\\\\n\\\", $3/$2*100}'\\n}\\n\\ncheck_cpu() {\\n    top -bn1 | grep 'Cpu(s)' | awk '{printf \\\"CPU: %.1f%% used\\\\n\\\", 100-$8}'\\n}\\n\\necho \\\"=== System Health Report ===$(date) ===\\\"\\ncheck_disk\\ncheck_memory\\ncheck_cpu",
+    "tags": [
+      "monitoring",
+      "system",
+      "automation"
+    ]
+  }
+]
